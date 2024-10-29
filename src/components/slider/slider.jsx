@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
   const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [productWidth, setProductWidth] = useState(0);
+  const [movieCardWidth, setMovieCardWidth] = useState(0);
   const [isPrevVisible, setIsPrevVisible] = useState(false);
   const [isNextVisible, setIsNextVisible] = useState(true);
 
@@ -24,28 +24,28 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
 
   const updateProductWidth = () => {
     if (sliderRef.current) {
-      const productEl = sliderRef.current.querySelector(".card");
-      const width = productEl ? productEl.clientWidth + 10 : 0;
-      setProductWidth(width);
+      const movieEl = sliderRef.current.querySelector(".card");
+      const width = movieEl ? movieEl.clientWidth + 10 : 0;
+      setMovieCardWidth(width);
       updateButtonVisibility(currentIndex, width);
     }
   };
 
   const slide = (direction) => {
-    const visibleProducts = Math.floor(
-      sliderRef.current.clientWidth / productWidth
+    const visibleMovies = Math.floor(
+      sliderRef.current.clientWidth / movieCardWidth
     );
-    const maxIndex = moviesData.length - visibleProducts;
-    let newIndex = currentIndex + direction * visibleProducts;
+    const maxIndex = moviesData.length - visibleMovies;
+    let newIndex = currentIndex + direction * visibleMovies;
 
     newIndex = Math.max(0, Math.min(newIndex, maxIndex));
     setCurrentIndex(newIndex);
 
     sliderRef.current.scrollTo({
-      left: newIndex * productWidth,
+      left: newIndex * movieCardWidth,
       behavior: "smooth",
     });
-    updateButtonVisibility(newIndex, productWidth);
+    updateButtonVisibility(newIndex, movieCardWidth);
 
     console.log(sliderRef.current);
   };
@@ -54,18 +54,6 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
     const visibleProducts = Math.floor(sliderRef.current.clientWidth / width);
     setIsPrevVisible(index > 0);
     setIsNextVisible(index < moviesData.length - visibleProducts);
-  };
-
-  const formatVoteCount = (vote_count) => {
-    if (vote_count < 10) {
-      const percentage = Math.floor(vote_count * 10);
-      return `${percentage}%`;
-    } else {
-      const integerVoteCount = Math.floor(vote_count);
-      return integerVoteCount >= 1000
-        ? new Intl.NumberFormat().format(integerVoteCount)
-        : integerVoteCount.toString();
-    }
   };
 
   return (
@@ -106,11 +94,11 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
                   <div className="card__stars">
                     <div
                       style={{
-                        width: `${formatVoteCount(movie.vote_average)}`,
+                        width: `${movie.vote_average * 10}%`,
                       }}
                     ></div>
                   </div>
-                  <div className="card__vote">{movie.vote_average}</div>
+                  <div className="card__vote">{movie.vote_average.toFixed(1)}</div>
                 </div>
               </div>
             </div>

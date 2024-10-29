@@ -8,17 +8,6 @@ const Banner = ({ bannerData }) => {
       ? new Intl.NumberFormat().format(vote_count)
       : vote_count;
   };
-  const formatVotePercentage = (vote_count) => {
-    if (vote_count < 10) {
-      const percentage = Math.floor(vote_count * 10);
-      return `${percentage}%`;
-    } else {
-      const integerVoteCount = Math.floor(vote_count);
-      return integerVoteCount >= 1000
-        ? new Intl.NumberFormat().format(integerVoteCount)
-        : integerVoteCount.toString();
-    }
-  };
 
   return (
     <div className="heroBanner">
@@ -40,7 +29,7 @@ const Banner = ({ bannerData }) => {
                 <div className="card__stars w-28 h-4">
                   <div
                     style={{
-                      width: `${formatVotePercentage(bannerData.vote_average)}`,
+                      width: `${bannerData.vote_average * 10}%`,
                     }}
                   ></div>
                 </div>

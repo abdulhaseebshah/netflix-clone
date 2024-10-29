@@ -7,6 +7,7 @@ import {
   fetchUpCommingMovies,
 } from "../api/moviedb";
 import Slider from "../components/slider/slider";
+import Footer from "../components/footer/footer";
 
 const Movies = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -50,6 +51,9 @@ const Movies = () => {
       <Slider rowTitle={"Top Rated Movies"} moviesData={topRatedMovies} />
       <Slider rowTitle={"Upcoming Movies"} moviesData={upcomingMovies} />
       <Slider rowTitle={"Now Playing Movies"} moviesData={nowPlayingMovies} />
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import AppLayout from "./pages/layout";
 import Movies from "./pages/movies";
 import TvShows from "./pages/tv-shows";
+import PageNotFound from "./components/pnf/page-not-found";
 
 const ScrollTop = () => {
   const { pathname } = useLocation();
@@ -11,7 +12,7 @@ const ScrollTop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
+  
   return null;
 };
 
@@ -24,12 +25,9 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="/movie" element={<Movies />} />
           <Route path="/tv" element={<TvShows />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-      <div className="pt-[2rem] px-[1.5rem] pb-[6.5rem] text-[#80868b]">
-        <p className="my-[.2rem] text-sm">© 2024 Abdul Haseeb. All rights reserved.</p>
-        <p className="my-[.2rem] text-sm">Designed and built by me, data provided by <u>TMDb</u>.</p>
-      </div>
     </>
   );
 };

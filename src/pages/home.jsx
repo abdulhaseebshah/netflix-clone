@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../components/side-navbar/sidebar";
 import Banner from "../components/banner/banner";
 import Slider from "../components/slider/slider";
 import { fetchTrendingMovies, fetchTrendingTvShows } from "../api/moviedb";
 import { useLocation } from "react-router-dom";
+import Footer from "../components/footer/footer";
 
 const Home = () => {
-  const [moviesData, setMoviesData] = useState([]);
-  const [tvShowsData, setTvShowsData] = useState([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [trendingTvShows, setTrendingTvShows] = useState([]);
   const [bannerData, setBannerData] = useState([]);
 
   const location = useLocation();
@@ -19,7 +19,7 @@ const Home = () => {
 
   const getTrendingMovies = async () => {
     const data = await fetchTrendingMovies();
-    setMoviesData(data.results);
+    setTrendingMovies(data.results);
     if (data.results && data.results.length > 0) {
       const randomMovie =
         data.results[Math.floor(Math.random() * data.results.length)];
@@ -29,7 +29,7 @@ const Home = () => {
 
   const getTrendingTvShows = async () => {
     const data = await fetchTrendingTvShows();
-    setTvShowsData(data.results);
+    setTrendingTvShows(data.results);
   };
 
   return (
@@ -38,14 +38,15 @@ const Home = () => {
       <Banner bannerData={bannerData} />
       <Slider
         rowTitle={"Trending Movies"}
-        moviesData={moviesData}
+        moviesData={trendingMovies}
         exploreMore={"/movie"}
       />
       <Slider
         rowTitle={"Trending TV Shows"}
-        moviesData={tvShowsData}
+        moviesData={trendingTvShows}
         exploreMore={"/tv"}
       />
+      <Footer />
     </div>
   );
 };

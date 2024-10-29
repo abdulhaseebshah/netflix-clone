@@ -7,6 +7,7 @@ import {
   fetchTopRatedTvShows,
 } from "../api/moviedb";
 import Slider from "../components/slider/slider";
+import Footer from "../components/footer/footer";
 
 const TvShows = () => {
   const [popularTvShows, setPopularTvShows] = useState([]);
@@ -56,6 +57,8 @@ const TvShows = () => {
         rowTitle={"TV Shows Airing Today"}
         moviesData={airingTodayTvShows}
       />
+
+      <Footer />
     </>
   );
 };
