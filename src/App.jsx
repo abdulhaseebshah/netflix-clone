@@ -9,7 +9,7 @@ import Search from "./pages/search/search";
 
 const ScrollTop = () => {
   const { pathname } = useLocation();
-
+  // Learning
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
