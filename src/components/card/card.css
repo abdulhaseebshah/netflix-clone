@@ -64,7 +64,7 @@
 }
 
 .card__name {
-  margin-top: 0.4rem;
+  margin-top: 1rem;
   overflow: hidden;
   font-size: 1rem;
   text-overflow: ellipsis;
@@ -124,7 +124,7 @@
 
 @media (min-width: 1200px) {
   .carousel__items {
-    scroll-padding: 50px;
+    scroll-padding: 1.5rem;
   }
 
   .carousel__items .card {

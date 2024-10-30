@@ -66,8 +66,8 @@ const LearningSlider = ({courseData = [], rowTitle, handleWatchTrailer}) => {
         )}
 
         <div className="carousel__items" ref={sliderRef}>
-          {courseData.map((movie, index) => (
-            <LearningCard movie={movie} key={index} handleWatchTrailer={handleWatchTrailer} />
+          {courseData.map((course, index) => (
+            <LearningCard course={course} key={index} handleWatchTrailer={handleWatchTrailer} />
           ))}
         </div>
         {isNextVisible && (

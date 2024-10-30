@@ -1,6 +1,6 @@
 .learning__card .card__img {
     height: 0;
-    padding-top: 60%;
+    padding-top: 57%;
 }
 
 /* learning--carousel */
@@ -8,11 +8,13 @@
     bottom: 32px;
     width: 50px;
 }
-.learning--carousel .listing__head{
-    margin-left: 0px;
+
+.learning--carousel .listing__head {
+    margin-left: 0rem;
 }
+
 .learning--carousel .carousel__items {
-    scroll-padding: 0px;
+    scroll-padding: 0rem;
 }
 
 .carousel__items .learning__card {
@@ -23,9 +25,29 @@
     display: block;
 }
 
+.learning--carousel {
+    margin-right: 0rem;
+}
+
 @media (min-width: 640px) {
     .carousel__items .learning__card {
         width: calc(65% - 14px);
+    }
+}
+
+/* 768px */
+
+@media (min-width: 768px) {
+    .carousel__items .learning__card {
+        width: calc(55% - 14px);
+    }
+}
+
+/* 1024px */
+
+@media (min-width: 1024px) {
+    .carousel__items .learning__card {
+        width: calc(45% - 14px);
     }
 }
 
@@ -33,6 +55,14 @@
 @media (min-width: 1200px) {
     .carousel__items .learning__card {
         width: calc(35% - 20px);
+    }
+
+    .learning--carousel .listing__head {
+        margin-left: 1.5rem;
+    }
+
+    .learning--carousel .carousel__items {
+        scroll-padding: 1.5rem;
     }
 }
 
