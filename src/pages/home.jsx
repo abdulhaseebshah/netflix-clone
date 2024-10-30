@@ -9,7 +9,6 @@ const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [trendingTvShows, setTrendingTvShows] = useState([]);
   const [bannerData, setBannerData] = useState([]);
-
   const location = useLocation();
 
   useEffect(() => {

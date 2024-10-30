@@ -120,14 +120,15 @@ img {
 
 .movieDesc {
   display: block;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   font-size: 1.2rem;
   color: #fff;
+  font-weight: 400;
 }
 
 .button {
   display: inline-block;
-  padding: 1rem 1.6rem;
+  padding: .8rem 1.4rem;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 1;
@@ -138,13 +139,13 @@ img {
   transition: all 0.2s;
 }
 
-button:focus,
+.button:focus,
 .button:hover {
   background-color: #2f2f2f;
 }
 
 .movieTrailerBtn {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .button--icon {
@@ -171,7 +172,7 @@ button:focus,
   }
 
   .movieTitle {
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.5rem;
   }
 
   .movieMeta {
@@ -221,7 +222,7 @@ button:focus,
   }
 
   .movieDesc {
-    font-size: 0.9vw;
+    font-size: 0.8vw;
   }
 
   .movieTrailerBtn {

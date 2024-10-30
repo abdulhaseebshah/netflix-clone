@@ -36,7 +36,11 @@
     padding: 0 33px;
 }
 
-.sideNavbar a.active > svg{
+.sideNavbar button:hover {
+    opacity: 0.8;
+}
+
+.sideNavbar a.active>svg {
     color: #2196f3;
 }
 

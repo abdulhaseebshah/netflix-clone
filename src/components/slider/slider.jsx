@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  RiArrowLeftSLine,
-  RiArrowRightSLine,
-  RiStarFill,
-} from "@remixicon/react";
+import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
 import "./slider.css";
 import { NavLink } from "react-router-dom";
+import Card from "../card/card";
 
 const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
   const sliderRef = useRef(null);
@@ -51,9 +48,9 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
   };
 
   const updateButtonVisibility = (index, width) => {
-    const visibleProducts = Math.floor(sliderRef.current.clientWidth / width);
+    const visibleMovies = Math.floor(sliderRef.current.clientWidth / width);
     setIsPrevVisible(index > 0);
-    setIsNextVisible(index < moviesData.length - visibleProducts);
+    setIsNextVisible(index < moviesData.length - visibleMovies);
   };
 
   return (
@@ -76,34 +73,10 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
 
         <div className="carousel__items" ref={sliderRef}>
           {moviesData.map((movie, index) => (
-            <div className="card" key={index}>
-              <a href="#">
-                <div className="card__img">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w370_and_h556_bestv2${movie.poster_path}`}
-                    alt={movie.title || "Movie Poster"}
-                    className="w-full h-full"
-                  />
-                </div>
-              </a>
-              <div className="card__link hidden md:block">
-                <h2 className="card__name">
-                  {movie.title || movie.name || "Untitled Movie"}
-                </h2>
-                <div className="card__rating">
-                  <div className="card__stars">
-                    <div
-                      style={{
-                        width: `${movie.vote_average * 10}%`,
-                      }}
-                    ></div>
-                  </div>
-                  <div className="card__vote">{movie.vote_average.toFixed(1)}</div>
-                </div>
-              </div>
-            </div>
+            <Card movie={movie} key={index} />
           ))}
         </div>
+
         {isNextVisible && (
           <button
             className="carousel__nav carousel__nav--right"

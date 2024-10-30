@@ -8,7 +8,11 @@ import React from "react";
 import "./sidebar.css";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, setIsOpen }) => {
+  const handleSearchToggle = () => {
+    setIsOpen(true);
+  };
+
   return (
     <nav className="sideNavbar">
       <ul className="nolist">
@@ -34,12 +38,12 @@ const Sidebar = () => {
           </NavLink>
         </li>
         <li>
-          <a>
+          <button onClick={handleSearchToggle}>
             <RiSearchLine
               size={28}
               className="text-white hover:text-stone-200"
             />
-          </a>
+          </button>
         </li>
       </ul>
     </nav>
