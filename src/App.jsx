@@ -6,6 +6,7 @@ import Movies from "./pages/movies";
 import TvShows from "./pages/tv-shows";
 import PageNotFound from "./components/pnf/page-not-found";
 import Search from "./pages/search/search";
+import Learning from "./pages/learning-home/learning";
 
 const ScrollTop = () => {
   const { pathname } = useLocation();
@@ -27,7 +28,7 @@ const App = () => {
           path="/"
           element={<AppLayout isOpen={isOpen} setIsOpen={setIsOpen} />}
         >
-          <Route index element={<Home />} />
+          <Route index element={<Learning />} />
           <Route path="/movie" element={<Movies />} />
           <Route path="/tv" element={<TvShows />} />
           <Route path="/search" element={<Search />} />
