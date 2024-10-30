@@ -1,0 +1,43 @@
+.learning__card .card__img {
+    height: 0;
+    padding-top: 60%;
+}
+
+/* learning--carousel */
+.learning--carousel .carousel__nav {
+    bottom: 32px;
+    width: 50px;
+}
+.learning--carousel .listing__head{
+    margin-left: 0px;
+}
+.learning--carousel .carousel__items {
+    scroll-padding: 0px;
+}
+
+.carousel__items .learning__card {
+    width: calc(75% - 14px);
+}
+
+.learning__card .card__link {
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .carousel__items .learning__card {
+        width: calc(65% - 14px);
+    }
+}
+
+/* 1200px */
+@media (min-width: 1200px) {
+    .carousel__items .learning__card {
+        width: calc(35% - 20px);
+    }
+}
+
+@media (min-width: 1800px) {
+    .carousel__items .learning__card {
+        width: calc(25% - 20px);
+    }
+}

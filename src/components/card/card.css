@@ -79,7 +79,7 @@
 }
 
 .card__stars,
-.card__stars > div {
+.card__stars>div {
   background-repeat: no-repeat;
   background-size: auto 100%;
 }
@@ -90,7 +90,7 @@
   background-image: url(../../assets/bgStar.png);
 }
 
-.card__stars > div {
+.card__stars>div {
   height: 100%;
   background-image: url(../../assets/bgStarFill.png);
 }
@@ -138,22 +138,22 @@
   .card__name {
     font-size: 1rem;
   }
+}
 
-  @media (min-width: 1200px) {
-    .card__vote {
-      font-size: 0.9rem;
-    }
+@media (min-width: 1200px) {
+  .card__vote {
+    font-size: 0.9rem;
   }
+}
 
-  @media (min-width: 1500px) {
-    .carousel__items .card {
-      width: calc(16.667% - 15.33364px);
-    }
+@media (min-width: 1500px) {
+  .carousel__items .card {
+    width: calc(16.667% - 15.33364px);
   }
+}
 
-  @media (min-width: 1800px) {
-    .carousel__items .card {
-      width: calc(13.8% - 13.14312px);
-    }
+@media (min-width: 1800px) {
+  .carousel__items .card {
+    width: calc(13.8% - 13.14312px);
   }
 }
