@@ -12,7 +12,6 @@ const Learning = () => {
 
   const handleWatchTrailer = (videoLink) => {
     setShowModal(true);
-
     setVideo(videoLink);
     // console.log()
   };

@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { RiPlayFill } from "@remixicon/react";
 import { motion } from "framer-motion";
-import { bannerData } from "../../api/learningdb";
+import { courseDetails } from "../../api/learningdb";
+import { useLocation } from "react-router-dom";
 
 const LearningBanner = ({ handleWatchTrailer }) => {
+  const { pathname } = useLocation();
+  const [bannerData, setBannerData] = useState([]);
+
+  const randomBannerData = () => {
+    const randomIndex = Math.floor(Math.random() * courseDetails.length);
+    return courseDetails[randomIndex];
+  };
+
+  useEffect(() => {
+    const data = randomBannerData();
+    setBannerData(data);
+  }, [pathname]);
+
   return (
     <div className="heroBanner">
       <div className="movieImg">

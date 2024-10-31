@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../components/banner/banner";
 import {
-    fetchNowPlayingMovies,
+  fetchNowPlayingMovies,
   fetchPopularMovies,
   fetchTopRatedMovies,
   fetchUpCommingMovies,
 } from "../api/moviedb";
 import Slider from "../components/slider/slider";
 import Footer from "../components/footer/footer";
+import ProgressBar from "../components/progressbar-loader/progressbar";
 
 const Movies = () => {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -20,7 +21,7 @@ const Movies = () => {
     getPopularMovies();
     getTopRatedMovies();
     getUpCommingMovies();
-    getNowPalyingMovies()
+    getNowPalyingMovies();
   }, []);
 
   const getPopularMovies = async () => {
@@ -42,7 +43,7 @@ const Movies = () => {
   const getNowPalyingMovies = async () => {
     const data = await fetchNowPlayingMovies();
     setNowPlayingMovies(data.results);
-  }
+  };
 
   return (
     <>
@@ -51,7 +52,6 @@ const Movies = () => {
       <Slider rowTitle={"Top Rated Movies"} moviesData={topRatedMovies} />
       <Slider rowTitle={"Upcoming Movies"} moviesData={upcomingMovies} />
       <Slider rowTitle={"Now Playing Movies"} moviesData={nowPlayingMovies} />
-
       {/* Footer */}
       <Footer />
     </>

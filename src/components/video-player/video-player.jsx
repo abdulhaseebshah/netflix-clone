@@ -1,6 +1,11 @@
 import React from "react";
+import ProgressBar from "../progressbar-loader/progressbar";
 
 const VideoPlayer = ({ videoId }) => {
+  // loader
+  if (!videoId) {
+    return <ProgressBar />;
+  }
   return (
     <div
       className="modal__iframe"
