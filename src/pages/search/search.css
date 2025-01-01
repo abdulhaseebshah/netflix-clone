@@ -3,7 +3,7 @@
 }
 
 .listing {
-  margin: 2.5rem 1.5rem;
+  /* margin: 2.5rem 1.5rem; */
 }
 
 .listing__head {
@@ -15,6 +15,8 @@
 .listing__title {
   font-size: 1.4rem;
   letter-spacing: 0.4px;
+  text-transform: capitalize;
+  color: #fff;
 }
 
 .listing__items {
@@ -43,5 +45,21 @@
 
   .card {
     margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .listing {
+    margin: 3rem;
+  }
+
+  .listing__title {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .listing__items .card {
+    width: 14%;
   }
 }

@@ -14,34 +14,36 @@ const nowPlayingMoviesEndpoint = `${baseUrl}/movie/now_playing?api_key=${APIKEY}
 // All TV Shows Endpoints
 const trendingTvShowsEndpoint = `${baseUrl}/trending/tv/week?api_key=${APIKEY}`;
 const popularTvShowsEndpoint = `${baseUrl}/tv/popular?api_key=${APIKEY}`;
-const topRatedTvShowsEndpoint = `${baseUrl}/tv/top_rated?api_key=${APIKEY}`
+const topRatedTvShowsEndpoint = `${baseUrl}/tv/top_rated?api_key=${APIKEY}`;
 const onTheAirTvShowsEndpoint = `${baseUrl}/tv/on_the_air?api_key=${APIKEY}`;
 const airingTodayTvShowsEndpoint = `${baseUrl}/tv/airing_today?api_key=${APIKEY}`;
 
-const apiCall = async (endpoint, params) => {
+const apiCall = async (endpoint, params = {}) => {
   const options = {
     method: "GET",
     url: endpoint,
-    params: params ? params : {},
+    params: { ...params },
   };
+
   try {
     const response = await axios.request(options);
     return response?.data;
   } catch (error) {
     console.log("Error", error);
+    return null;
   }
 };
 
-// All fetch fucntion for Movies
-export const fetchTrendingMovies = () => apiCall(trendingMoviesEndpoint);
-export const fetchPopularMovies = () => apiCall(popularMoviesEndpoint);
-export const fetchTopRatedMovies = () => apiCall(topRatedMoviesEndpoint);
-export const fetchUpCommingMovies = () => apiCall(upCommingMoviesEndpoint);
-export const fetchNowPlayingMovies = () => apiCall(nowPlayingMoviesEndpoint);
+// Fetch function for Movies (with pagination)
+export const fetchTrendingMovies = (page = 1) => apiCall(trendingMoviesEndpoint, { page });
+export const fetchPopularMovies = (page = 1) => apiCall(popularMoviesEndpoint, { page });
+export const fetchTopRatedMovies = (page = 1) => apiCall(topRatedMoviesEndpoint, { page });
+export const fetchUpCommingMovies = (page = 1) => apiCall(upCommingMoviesEndpoint, { page });
+export const fetchNowPlayingMovies = (page = 1) => apiCall(nowPlayingMoviesEndpoint, { page });
 
-// Fetch function for TV Shows
-export const fetchTrendingTvShows = () => apiCall(trendingTvShowsEndpoint);
-export const fetchPopularTvShows = () => apiCall(popularTvShowsEndpoint);
-export const fetchTopRatedTvShows = () => apiCall(topRatedTvShowsEndpoint);
-export const fetchOnTheAirTvShows = () => apiCall(onTheAirTvShowsEndpoint);
-export const fetchAiringTodayTvShows = () => apiCall(airingTodayTvShowsEndpoint);
+// Fetch function for TV Shows (with pagination)
+export const fetchTrendingTvShows = (page = 1) => apiCall(trendingTvShowsEndpoint, { page });
+export const fetchPopularTvShows = (page = 1) => apiCall(popularTvShowsEndpoint, { page });
+export const fetchTopRatedTvShows = (page = 1) => apiCall(topRatedTvShowsEndpoint, { page });
+export const fetchOnTheAirTvShows = (page = 1) => apiCall(onTheAirTvShowsEndpoint, { page });
+export const fetchAiringTodayTvShows = (page = 1) => apiCall(airingTodayTvShowsEndpoint, { page });

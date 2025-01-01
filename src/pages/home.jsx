@@ -32,7 +32,7 @@ const Home = () => {
   };
 
   return (
-    <div className="main">
+    <div className="main"> 
       <div className="searchBar"></div>
       <Banner bannerData={bannerData} />
       <Slider

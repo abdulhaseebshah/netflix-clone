@@ -51,7 +51,6 @@ const Movies = () => {
       <Slider rowTitle={"Top Rated Movies"} moviesData={topRatedMovies} />
       <Slider rowTitle={"Upcoming Movies"} moviesData={upcomingMovies} />
       <Slider rowTitle={"Now Playing Movies"} moviesData={nowPlayingMovies} />
-
       {/* Footer */}
       <Footer />
     </>

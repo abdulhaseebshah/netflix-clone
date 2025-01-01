@@ -57,7 +57,10 @@ const Slider = ({ rowTitle, moviesData = [], exploreMore }) => {
     <div className="listing listing--carousel">
       <div className="listing__head">
         <h2 className="listing__title">{rowTitle || "Trending Movies"}</h2>
-        <NavLink to={exploreMore} className="listing__explore">
+        <NavLink
+          to={`${exploreMore}/category/trending`}
+          className="listing__explore"
+        >
           <strong>Explore All</strong>
         </NavLink>
       </div>
