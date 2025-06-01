@@ -31,7 +31,10 @@
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
-
+.listing {
+    margin-left: 0;
+    margin-right: 0;
+  }
 @media (min-width: 640px) {
   .listing {
     margin: 3rem 1.5rem;
