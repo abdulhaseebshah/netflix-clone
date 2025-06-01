@@ -47,17 +47,26 @@ const TvShows = () => {
   return (
     <>
       <Banner bannerData={bannerData} />
-      <Slider rowTitle={"Popular TV SHows"} moviesData={popularTvShows} />
-      <Slider rowTitle={"Top Rated TV Shows"} moviesData={topRatedTvShows} />
+      <Slider
+        rowTitle={"Popular TV Shows"}
+        exploreMore={"/tv/category/popular"}
+        moviesData={popularTvShows}
+      />
+      <Slider
+        rowTitle={"Top Rated TV Shows"}
+        exploreMore={"/tv/category/top_rated"}
+        moviesData={topRatedTvShows}
+      />
       <Slider
         rowTitle={"Currently Airing TV Shows"}
+        exploreMore={"/tv/category/on_the_air"}
         moviesData={onTheAirTvShows}
       />
       <Slider
         rowTitle={"TV Shows Airing Today"}
+        exploreMore={"/tv/category/airing_today"}
         moviesData={airingTodayTvShows}
       />
-
       <Footer />
     </>
   );

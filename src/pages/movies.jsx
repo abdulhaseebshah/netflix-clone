@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../components/banner/banner";
 import {
-    fetchNowPlayingMovies,
+  fetchNowPlayingMovies,
   fetchPopularMovies,
   fetchTopRatedMovies,
   fetchUpCommingMovies,
@@ -20,7 +20,7 @@ const Movies = () => {
     getPopularMovies();
     getTopRatedMovies();
     getUpCommingMovies();
-    getNowPalyingMovies()
+    getNowPalyingMovies();
   }, []);
 
   const getPopularMovies = async () => {
@@ -42,15 +42,31 @@ const Movies = () => {
   const getNowPalyingMovies = async () => {
     const data = await fetchNowPlayingMovies();
     setNowPlayingMovies(data.results);
-  }
+  };
 
   return (
     <>
       <Banner bannerData={bannerData} />
-      <Slider rowTitle={"Popular Movies"} moviesData={popularMovies} />
-      <Slider rowTitle={"Top Rated Movies"} moviesData={topRatedMovies} />
-      <Slider rowTitle={"Upcoming Movies"} moviesData={upcomingMovies} />
-      <Slider rowTitle={"Now Playing Movies"} moviesData={nowPlayingMovies} />
+      <Slider
+        rowTitle={"Popular Movies"}
+        exploreMore={"/movie/category/popular"}
+        moviesData={popularMovies}
+      />
+      <Slider
+        rowTitle={"Top Rated Movies"}
+        exploreMore={"/movie/category/top_rated"}
+        moviesData={topRatedMovies}
+      />
+      <Slider
+        rowTitle={"Upcoming Movies"}
+        exploreMore={"/movie/category/upcoming"}
+        moviesData={upcomingMovies}
+      />
+      <Slider
+        rowTitle={"Now Playing Movies"}
+        exploreMore={"/movie/category/now_playing"}
+        moviesData={nowPlayingMovies}
+      />
 
       {/* Footer */}
       <Footer />
